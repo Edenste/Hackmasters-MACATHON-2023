@@ -4,7 +4,7 @@ from datetime import datetime
 
 def read_json_files_in_range(start_date, end_date, category_list):
     # Specify the directory path to search for JSON files
-    directory_path = r"./"
+    directory_path = r"./json_files"
 
     # Initialize a list to store the JSON data from each file
     json_data_list = []
@@ -23,15 +23,14 @@ def read_json_files_in_range(start_date, end_date, category_list):
             )  # Parse the date string into a datetime object
 
             # Check if the file's date is within the specified range
-            if start_date <= file_date <= end_date:
-                file_path = os.path.join(directory_path, filename)
-                try:
-                    # Open and read the JSON file
-                    with open(file_path, "r") as json_file:
-                        data = json.load(json_file)
-                        json_data_list.append(data)
-                except Exception as e:
-                    print(f"Error reading {filename}: {str(e)}")
+            file_path = os.path.join(directory_path, filename)
+            try:
+                # Open and read the JSON file
+                with open(file_path, "r") as json_file:
+                    data = json.load(json_file)
+                    json_data_list.append(data)
+            except Exception as e:
+                print(f"Error reading {filename}: {str(e)}")
 
     # Changes the "YYYY-MM-DD.json" into "DD/MM/YYYY" format
     for index in range(len(json_filename_list)):

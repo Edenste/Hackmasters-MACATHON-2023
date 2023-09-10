@@ -68,7 +68,8 @@ def scrape_ozbargain():
 
         # Save the deals_data dictionary as a JSON file with the current date in the name
         json_file_name = f'{datetime.now().strftime("%Y-%m-%d")}.json'
-        with open(json_file_name, 'w', encoding='utf-8') as json_file:
+        json_directory = "./json_files/" + json_file_name
+        with open(json_directory, 'w', encoding='utf-8') as json_file:
             json.dump(deals_data, json_file, ensure_ascii=False, indent=4)
 
         print(f'Scraped and saved deals to {json_file_name}')
