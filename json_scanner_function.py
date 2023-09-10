@@ -4,7 +4,7 @@ from datetime import datetime
 
 def read_json_files_in_range(start_date, end_date, category_list):
     # Specify the directory path to search for JSON files
-    directory_path = r".\json_files"
+    directory_path = r"./"
 
     # Initialize a list to store the JSON data from each file
     json_data_list = []
@@ -73,6 +73,7 @@ def read_json_files_in_range(start_date, end_date, category_list):
         date_index += 1
 
     print(deals_dictionary)
+    return deals_dictionary
 
 if __name__ == "__main__":
     start_date = datetime.strptime("2020-01-01", "%Y-%m-%d")
